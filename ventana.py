@@ -22,6 +22,30 @@ class ventana:
             c,e = mc.prueba(int(entry3),int(entry4))
             a,e = mc.prueba(b,c)
             self.texto.insert(INSERT,e)
+            
+            x = "La combinación lineal entre " + entry1 + " y " + entry2 + " es: \n"
+            r1 = mc.extended_euclid_gcd(int(entry1),int(entry2))
+            res1 = entry1 + "(" + str(r1[1]) +")" + " + " + entry2 + "(" +str(r1[2])+ ")" + " = " + str(r1[0]) + "\n"
+            self.texto.insert(INSERT,x)
+            self.texto.insert(INSERT,res1)
+            
+            x = "La combinación lineal entre " + entry3 + " y " + entry4 + " es: \n"
+            r2 = mc.extended_euclid_gcd(int(entry3),int(entry4))
+            res2 = entry3 + "(" + str(r2[1]) +")" + " + " + entry4 + "(" +str(r2[2])+ ")" + " = " + str(r2[0]) + "\n"
+            self.texto.insert(INSERT,x)
+            self.texto.insert(INSERT,res2)
+            
+            x = "La combinación lineal entre " + str(b) + " y " + str(c) + " es: \n"
+            r3 = mc.extended_euclid_gcd(b,c)
+            res3 = str(b) + "(" + str(r3[1]) +")" + " + " + str(c) + "(" +str(r3[2])+ ")" + " = " + str(r3[0]) + "\n"
+            self.texto.insert(INSERT,x)
+            self.texto.insert(INSERT,res3)
+
+            x = "La combinacion lineal entre todos los numeros es: \n"
+            res4 = "(" + entry1 + "(" + str(r1[1]) +")" + " + " + entry2 + "(" +str(r1[2])+ ")" + ")" + "(" + str(r3[1]) +")" + " + " + "(" + entry3 + "(" + str(r2[1]) +")" + " + " + entry4 + "(" +str(r2[2])+ ")" + ")" + "(" +str(r3[2])+ ")" + " = " + str(r3[0]) + "\n"
+            self.texto.insert(INSERT,x)
+            self.texto.insert(INSERT,res4)
+            
             b = "El mcd es: " + str(a)
             self.texto.insert(INSERT,b)
             self.texto.config(state = DISABLED)
